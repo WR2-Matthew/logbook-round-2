@@ -25,9 +25,11 @@ module.exports = {
   },
 
   editJump: async (req, res) => {
+    console.log('hit')
     const db = req.app.get('db')
     const { date, dropzone, jumpNumber, discipline, imageUrl, details } = req.body
     const { jump_id } = req.params
+
 
     const updateJump = await db.edit_jump(date, dropzone, jumpNumber, discipline, details, imageUrl, jump_id)
     res.status(200).send(updateJump)

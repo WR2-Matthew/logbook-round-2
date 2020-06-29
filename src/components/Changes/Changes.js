@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import axios from 'axios';
+import axios from 'axios';
 import './Changes.css'
 import { connect } from 'react-redux'
 import { getJumps } from '../../redux/actionCreators'
@@ -130,6 +130,7 @@ class Changes extends Component {
     const { date, dropzone, jumpNumber, discipline, details, imageUrl } = this.state
     const { jump } = this.props.location.state
     const body = { date, dropzone, jumpNumber, discipline, details, imageUrl }
+    console.log(jump, 'jump from location')
     axios
       // not sure if this jump id is going to work. Check console log of this.props.location.state
       .put(`/api/change/jump/${jump.jump_id}`, body)
@@ -137,6 +138,10 @@ class Changes extends Component {
         this.props.getJumps(res.data)
         this.props.history.push('/dashboard')
       })
+  }
+
+  cancelChanges = () => {
+    this.props.history.push('/dashboard')
   }
 
   render() {
@@ -148,44 +153,45 @@ class Changes extends Component {
         <div className='changesHead'>
           <div className='changesHeader'>
             <span>Date:</span>
-            <button onClick={() => this.updateInfo()} >{date}</button>
-            {toggleEditOne ? <div><input name='date' value={date} onChange={(e) => this.handleChange(e)} /> <button onClick={() => this.updateInfo()}>Update</button> </div> : null}
+            <button className='changeBut' onClick={() => this.updateInfo()} >{date}</button>
+            {toggleEditOne ? <div><input className='changesInput' name='date' value={date} onChange={(e) => this.handleChange(e)} /> <button className='changeBut' onClick={() => this.updateInfo()}>Update</button> </div> : null}
           </div>
 
           <div className='changesHeader'>
             <span>Dropzone:</span>
-            <button onClick={() => this.updateInfoTwo()} >{dropzone}</button>
-            {toggleEditTwo ? <div><input name='dropzone' value={dropzone} onChange={(e) => this.handleChange(e)} /> <button onClick={() => this.updateInfoTwo()}>Update</button> </div> : null}
+            <button className='changeBut' onClick={() => this.updateInfoTwo()} >{dropzone}</button>
+            {toggleEditTwo ? <div><input className='changesInput' name='dropzone' value={dropzone} onChange={(e) => this.handleChange(e)} /> <button className='changeBut' onClick={() => this.updateInfoTwo()}>Update</button> </div> : null}
           </div>
 
           <div className='changesHeader'>
             <span>Jump Number:</span>
-            <button onClick={() => this.updateInfoThree()} >{jumpNumber}</button>
-            {toggleEditThree ? <div><input name='jumpNumber' value={jumpNumber} onChange={(e) => this.handleChange(e)} /> <button onClick={() => this.updateInfoThree()}>Update</button> </div> : null}
+            <button className='changeBut' onClick={() => this.updateInfoThree()} >{jumpNumber}</button>
+            {toggleEditThree ? <div><input className='changesInput' name='jumpNumber' value={jumpNumber} onChange={(e) => this.handleChange(e)} /> <button className='changeBut' onClick={() => this.updateInfoThree()}>Update</button> </div> : null}
           </div>
 
           <div className='changesHeader'>
             <span>Discipline:</span>
-            <button onClick={() => this.updateInfoFour()} >{discipline}</button>
-            {toggleEditFour ? <div><input name='discipline' value={discipline} onChange={(e) => this.handleChange(e)} /> <button onClick={() => this.updateInfoFour()}>Update</button> </div> : null}
+            <button className='changeBut' onClick={() => this.updateInfoFour()} >{discipline}</button>
+            {toggleEditFour ? <div><input className='changesInput' name='discipline' value={discipline} onChange={(e) => this.handleChange(e)} /> <button className='changeBut' onClick={() => this.updateInfoFour()}>Update</button> </div> : null}
           </div>
         </div>
 
         <div className='changesBody'>
-          <div className='changesbodies'>
+          <div className='changesBodies'>
             <span>Jump Details:</span>
-            <button onClick={() => this.updateInfoFive()} >{details}</button>
-            {toggleEditFive ? <div><input name='details' value={details} onChange={(e) => this.handleChange(e)} /> <button onClick={() => this.updateInfoFive()}>Update</button> </div> : null}
+            <button className='changeBut' onClick={() => this.updateInfoFive()} >{details}</button>
+            {toggleEditFive ? <div><input className='changesInputTwo' name='details' value={details} onChange={(e) => this.handleChange(e)} /> <button className='changeBut' onClick={() => this.updateInfoFive()}>Update</button> </div> : null}
           </div>
 
-          <div className='changesbodies'>
+          <div className='changesBodies'>
             <span>Jumps Image:</span>
             <img className='jumpImg' alt='jump' src={imageUrl} onClick={() => this.updateInfoSix()} />
-            {toggleEditSix ? <div><input name='imageUrl' value={imageUrl} onChange={(e) => this.handleChange(e)} /> <button onClick={() => this.updateInfoSix()}>Update</button> </div> : null}
+            {toggleEditSix ? <div><input className='changesInputTwo' name='imageUrl' value={imageUrl} onChange={(e) => this.handleChange(e)} /> <button className='changeBut' onClick={() => this.updateInfoSix()}>Update</button> </div> : null}
           </div>
         </div>
-        <div>
-          <button onClick={() => this.editJump}>Save Changes</button>
+        <div className='changesButton'>
+          <button className='changeBut' onClick={() => this.editJump()}>Save Changes</button>
+          <button className='changeBut' onClick={() => this.cancelChanges()}>Cancel Changes</button>
         </div>
       </div>
     )

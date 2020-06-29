@@ -4,8 +4,41 @@
   align-items: center;
   height: 90vh;
   width: 100vw;
+  flex-direction: column;
 }
 
 .changesHead {
-  margin: 100px;
+  /* margin: 100px; */
+  display: flex;
+}
+
+.changeBut{
+  border: none;
+  background-color: purple;
+  color: white;
+  border-radius: 9%;
+  cursor: pointer;
+}
+
+.changesHeader, .changesBodies {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 30vh;
+  align-items: center;
+}
+
+.changesInput, .changesInputTwo {
+  width: 100px;
+}
+
+.changesBody {
+  display: flex;
+  justify-content: space-evenly;
+  width: 75vw;
+  height: 30vh;
+}
+
+.changesButton {
+  margin-top: 70px;
 }

@@ -34,6 +34,6 @@ app.post('/api/register', authCtrl.register)
 app.post('/api/create/jump', jumpCtrl.createJump)
 app.get('/api/jumps', jumpCtrl.retrieveJumps)
 app.delete('/api/delete/jump/:jump_id', jumpCtrl.deleteJump)
-app.put('/api/change/jump:jump_id', jumpCtrl.editJump)
+app.put('/api/change/jump/:jump_id', jumpCtrl.editJump)
 
 app.listen(SERVER_PORT, () => { console.log(`Doing it big on port ${SERVER_PORT}`) })
