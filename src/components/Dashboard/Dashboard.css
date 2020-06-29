@@ -1,3 +1,31 @@
 .dashboard {
-  
+  height: 90vh;
+  width: 100vw;
+  background-image: linear-gradient(99deg,#51affb,#41f5a1 40%,#06d1af 73%,#ba70ff);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.leftSideButtonHolder, .rightSideButtonHolder {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin: 14px;
+  height: 30px;
+}
+
+.dashboardLogbook {
+  height: 50vh;
+  width: 65vw;
+  -webkit-box-shadow: 2px 3px 3px 3px rgb(104, 104, 104);
+}
+
+.dashButtons {
+  border-radius: 17%;
+  background-color: #6d20b6;
+  color: white;
+  cursor: pointer;
 }

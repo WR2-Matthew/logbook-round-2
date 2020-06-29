@@ -1,1 +1,3 @@
 export const GET_JUMPER = 'GET_JUMPER'
+export const CREATE_JUMP = 'CREATE_JUMP'
+export const RETRIEVE_JUMPS = 'RETRIEVE_JUMPS'

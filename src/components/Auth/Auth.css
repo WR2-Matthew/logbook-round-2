@@ -45,10 +45,9 @@
 }
 
 .buttons {
-  margin-top: 65px;
   display: flex;
   height: 3vh;
-  width: 40vw;
+  width: 20vw;
   justify-content: space-evenly;
 }
 

@@ -1,0 +1,53 @@
+.dashboardDetails {
+  height: 50vh;
+  width: 65vw;
+  background-color: rgb(237, 231, 243);
+  opacity: 0.5;
+  }
+
+.dashDetHead {
+  width: 65vw;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashDetailsHeader {
+  height: 20vh;
+  width: 14vw;
+}
+
+span, p {
+  margin: 30px;
+}
+
+.dashDetBody {
+  display: flex;
+  justify-content: space-evenly;
+  height: 25vh;
+  width: 65vw;
+}
+
+.dashDetailsBody {
+  height: 25vh;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+span {
+  font-weight: 700;
+  font-size: 25px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.jumpImg {
+  height: 130px;
+  width: 130px;
+}
